@@ -1,1 +1,100 @@
 .DS_Store
+
+### OpenWPM ###
+
+# Docker volume
+code/OpenWPM/docker-volume/
+
+# pytest
+code/OpenWPM/.pytest_cache/
+
+# mypy
+code/OpenWPM/.mypy_cache
+
+# firefox directories
+code/OpenWPM/firefox-bin/
+code/OpenWPM/Firefox*.app/
+code/OpenWPM/Nightly*.app/
+code/OpenWPM/firefox-profile
+
+# VIM tmp files
+code/OpenWPM/*~
+code/OpenWPM/.*.sw*
+
+# A bug in selenium creates this on unix systems
+code/OpenWPM/C:\\nppdf32Log\\debuglog.txt
+
+# PyCharm
+code/OpenWPM/.idea/*
+code/OpenWPM/*.idea
+code/OpenWPM/*/idea
+code/OpenWPM/.Trash-0
+
+#VSCode
+code/OpenWPM/.vscode
+
+# Local Python virtual environments
+code/OpenWPM/venv/
+
+# Byte-compiled / optimized / DLL files
+code/OpenWPM/__pycache__/
+code/OpenWPM/*.py[cod]
+
+# C extensions
+code/OpenWPM/*.so
+
+# Distribution / packaging
+code/OpenWPM/.Python
+code/OpenWPM/env/
+code/OpenWPM/bin/
+code/OpenWPM/build/
+code/OpenWPM/develop-eggs/
+code/OpenWPM/dist/
+code/OpenWPM/eggs/
+#lib/
+#lib64/
+code/OpenWPM/parts/
+code/OpenWPM/sdist/
+code/OpenWPM/var/
+code/OpenWPM/*.egg-info/
+code/OpenWPM/.installed.cfg
+code/OpenWPM/*.egg
+
+# Installer logs
+code/OpenWPM/pip-log.txt
+code/OpenWPM/pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+code/OpenWPM/htmlcov/
+code/OpenWPM/.tox/
+code/OpenWPM/.coverage
+code/OpenWPM/.cache
+code/OpenWPM/nosetests.xml
+code/OpenWPM/coverage.xml
+
+# Translations
+code/OpenWPM/*.mo
+
+# Mr Developer
+code/OpenWPM/.mr.developer.cfg
+code/OpenWPM/.project
+code/OpenWPM/.pydevproject
+
+# Rope
+code/OpenWPM/.ropeproject
+
+# Django stuff:
+code/OpenWPM/*.log
+code/OpenWPM/*.pot
+
+# Sphinx documentation
+code/OpenWPM/docs/_build/
+
+# npm packages
+code/OpenWPM/node_modules
+
+# built extension artifacts
+code/OpenWPM/automation/Extension/firefox/dist
+code/OpenWPM/automation/Extension/firefox/openwpm.xpi
+code/OpenWPM/automation/Extension/firefox/src/content.js
+code/OpenWPM/automation/Extension/firefox/src/feature.js
