@@ -98,3 +98,292 @@ code/OpenWPM/automation/Extension/firefox/dist
 code/OpenWPM/automation/Extension/firefox/openwpm.xpi
 code/OpenWPM/automation/Extension/firefox/src/content.js
 code/OpenWPM/automation/Extension/firefox/src/feature.js
+
+
+### Latex ###
+
+## Core latex/pdflatex auxiliary files:
+paper/*.aux
+paper/*.lof
+paper/*.log
+paper/*.lot
+paper/*.fls
+paper/*.out
+paper/*.toc
+paper/*.fmt
+paper/*.fot
+paper/*.cb
+paper/*.cb2
+paper/.*.lb
+
+## Intermediate documents:
+paper/*.dvi
+paper/*.xdv
+paper/*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+# *.pdf
+
+## Generated if empty string is given at "Please type another file name for output:"
+paper/.pdf
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*-blx.aux
+paper/*-blx.bib
+paper/*.run.xml
+
+## Build tool auxiliary files:
+paper/*.fdb_latexmk
+paper/*.synctex
+paper/*.synctex(busy)
+paper/*.synctex.gz
+paper/*.synctex.gz(busy)
+paper/*.pdfsync
+
+## Build tool directories for auxiliary files
+# latexrun
+paper/latex.out/
+
+## Auxiliary and intermediate files from other packages:
+# algorithms
+paper/*.alg
+paper/*.loa
+
+# achemso
+paper/acs-*.bib
+
+# amsthm
+paper/*.thm
+
+# beamer
+paper/*.nav
+paper/*.pre
+paper/*.snm
+paper/*.vrb
+
+# changes
+paper/*.soc
+
+# comment
+paper/*.cut
+
+# cprotect
+paper/*.cpt
+
+# elsarticle (documentclass of Elsevier journals)
+paper/*.spl
+
+# endnotes
+paper/*.ent
+
+# fixme
+paper/*.lox
+
+# feynmf/feynmp
+paper/*.mf
+paper/*.mp
+paper/*.t[1-9]
+paper/*.t[1-9][0-9]
+paper/*.tfm
+
+#(r)(e)ledmac/(r)(e)ledpar
+paper/*.end
+paper/*.?end
+paper/*.[1-9]
+paper/*.[1-9][0-9]
+paper/*.[1-9][0-9][0-9]
+paper/*.[1-9]R
+paper/*.[1-9][0-9]R
+paper/*.[1-9][0-9][0-9]R
+paper/*.eledsec[1-9]
+paper/*.eledsec[1-9]R
+paper/*.eledsec[1-9][0-9]
+paper/*.eledsec[1-9][0-9]R
+paper/*.eledsec[1-9][0-9][0-9]
+paper/*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+paper/*.acn
+paper/*.acr
+paper/*.glg
+paper/*.glo
+paper/*.gls
+paper/*.glsdefs
+paper/*.lzo
+paper/*.lzs
+
+# uncomment this for glossaries-extra (will ignore makeindex's style files!)
+# *.ist
+
+# gnuplottex
+paper/*-gnuplottex-*
+
+# gregoriotex
+paper/*.gaux
+paper/*.gtex
+
+# htlatex
+paper/*.4ct
+paper/*.4tc
+paper/*.idv
+paper/*.lg
+paper/*.trc
+paper/*.xref
+
+# hyperref
+paper/*.brf
+
+# knitr
+paper/*-concordance.tex
+# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
+# *.tikz
+paper/*-tikzDictionary
+
+# listings
+paper/*.lol
+
+# luatexja-ruby
+paper/*.ltjruby
+
+# makeidx
+paper/*.idx
+paper/*.ilg
+paper/*.ind
+
+# minitoc
+paper/*.maf
+paper/*.mlf
+paper/*.mlt
+paper/*.mtc[0-9]*
+paper/*.slf[0-9]*
+paper/*.slt[0-9]*
+paper/*.stc[0-9]*
+
+# minted
+paper/_minted*
+paper/*.pyg
+
+# morewrites
+paper/*.mw
+
+# nomencl
+paper/*.nlg
+paper/*.nlo
+paper/*.nls
+
+# pax
+paper/*.pax
+
+# pdfpcnotes
+paper/*.pdfpc
+
+# sagetex
+paper/*.sagetex.sage
+paper/*.sagetex.py
+paper/*.sagetex.scmd
+
+# scrwfile
+paper/*.wrt
+
+# sympy
+paper/*.sout
+paper/*.sympy
+paper/sympy-plots-for-*.tex/
+
+# pdfcomment
+paper/*.upa
+paper/*.upb
+
+# pythontex
+paper/*.pytxcode
+paper/pythontex-files-*/
+
+# tcolorbox
+paper/*.listing
+
+# thmtools
+paper/*.loe
+
+# TikZ & PGF
+paper/*.dpth
+paper/*.md5
+paper/*.auxlock
+
+# todonotes
+paper/*.tdo
+
+# vhistory
+paper/*.hst
+paper/*.ver
+
+# easy-todo
+paper/*.lod
+
+# xcolor
+paper/*.xcp
+
+# xmpincl
+paper/*.xmpi
+
+# xindy
+paper/*.xdy
+
+# xypic precompiled matrices and outlines
+paper/*.xyc
+paper/*.xyd
+
+# endfloat
+paper/*.ttt
+paper/*.fff
+
+# Latexian
+paper/TSWLatexianTemp*
+
+## Editors:
+# WinEdt
+paper/*.bak
+paper/*.sav
+
+# Texpad
+paper/.texpadtmp
+
+# LyX
+paper/*.lyx~
+
+# Kile
+paper/*.backup
+
+# gummi
+paper/.*.swp
+
+# KBibTeX
+paper/*~[0-9]*
+
+# TeXnicCenter
+paper/*.tps
+
+# auto folder when using emacs and auctex
+paper/./auto/*
+paper/*.el
+
+# expex forward references with \gathertags
+paper/*-tags.tex
+
+# standalone packages
+paper/*.sta
+
+# Makeindex log files
+paper/*.lpz
+
+# xwatermark package
+paper/*.xwm
+
+# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
+# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
+# Uncomment the next line to have this generated file ignored.
+#*Notes.bib
+
