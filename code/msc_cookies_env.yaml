@@ -1,0 +1,31 @@
+name: msc_cookies_env_2
+channels:
+    - conda-forge
+dependencies:
+    - python=3.7
+    - beautifulsoup4
+    - geckodriver
+    - leveldb
+    - make
+    - multiprocess
+    - nodejs
+    - pandas
+    - pillow
+    - pip
+    - psutil
+    - pyarrow
+    - python-dateutil
+    - selenium
+    - s3fs
+    - tabulate
+    - tblib
+    - sentry-sdk
+    - phantomjs 
+    - pip:
+        - publicsuffix
+        - plyvel
+        - mini-amf
+        - pyvirtualdisplay
+        - reppy
+        - lxml
+        - requests

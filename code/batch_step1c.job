@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=msc_cookies_step0a
+#SBATCH --mail-type=END,FAIL 
+#SBATCH --mail-user=gk794@york.ac.uk
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=64gb      
+#SBATCH -t 05:00:00
+#SBATCH --output=./outp/viking/threaded_job_%j.log
+#SBATCH --account=cs-websec-2020
+
+
+echo My working directory is `pwd`
+echo Running job on host:
+echo -e '\t'`hostname` at `date`
+echo
+
+echo "Checking TOS compliance"
+python step1c_checker_tos.py --db ./outp/cookies.sqlite
+echo "Finished checking TOS compliance"
+echo 
+

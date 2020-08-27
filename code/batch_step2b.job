@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=msc_cookies_step0a
+#SBATCH --mail-type=END,FAIL 
+#SBATCH --mail-user=gk794@york.ac.uk
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=128gb      
+#SBATCH -t 36:00:00
+#SBATCH --output=./outp/viking/threaded_job_%j.log
+#SBATCH --account=cs-websec-2020
+
+
+echo My working directory is `pwd`
+echo Running job on host:
+echo -e '\t'`hostname` at `date`
+echo
+
+echo "Starting OpenWPM Cookie Detector..."
+python step2b_openwpm_cookie_parser.py --db ./outp/cookies.sqlite --browsers 8
+echo "Finished crawling for cookie banners"
+echo 
+
