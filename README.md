@@ -19,8 +19,6 @@ Furthermore, we found evidence that websites nudge users towards privacy intrusi
 
 ![](https://github.com/george-kampanos/i-like-cookies/blob/master/paper/example_data/fig2.png)
 
-More specifically, we found that 
-
 You can see the full set of results in the [`data`](https://github.com/george-kampanos/i-like-cookies/tree/master/data) directory of this Github. 
 
 ## The paper
