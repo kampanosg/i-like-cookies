@@ -24,6 +24,8 @@ You can see the full set of results in the [`data`](https://github.com/george-ka
 ## The paper
 You can download and read the full paper [here](https://github.com/george-kampanos/i-like-cookies/blob/master/paper.pdf). It discusses in detail all the code and methods that were mentioned here. 
 
+---
+
 Hope you've enjoyed my MSc Project! Drop me a line if you repeated the study for your country (or just want to say hi) [here](https://uk.linkedin.com/in/kampanosg). 
 
 ![](https://media.giphy.com/media/syBlSgDbjsMHC/giphy.gif)
