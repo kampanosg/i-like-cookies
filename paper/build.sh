@@ -1,0 +1,2 @@
+latexmk -pdf
+latexmk -c

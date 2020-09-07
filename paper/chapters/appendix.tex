@@ -1,0 +1,86 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Tables}
+
+\subsection*{Methods}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+        \textbf{Field}    & \textbf{Description}                                    \\ \midrule
+        privacy\_text     & The privacy text displayed in the cookie banner.        \\
+        has\_accept\_btn  & Whether the cookie banner has an affirmative button.    \\
+        cta\_accept       & The call to action used in the affirmative button.      \\
+        has\_decline\_btn & Whether the cookie banner has an non-affirmative button \\
+        cta\_decline      & The call to action used in the non-affirmative button.  \\
+        has\_info\_btn    & Whether the cookie banner has an informational button   \\
+        cta\_info         & The call to action used in the informational button.    \\
+        has\_options\_btn & Whether the cookie banner has a managerial button       \\
+        cta\_options      & The call to action used in the managerial button.       \\ \bottomrule
+    \end{tabular}
+    \caption{The SQL schema used to store the normalised cookie banners based on the 4 distinct privacy options categories.}
+    \label{tab:methods_normalised_schema}
+\end{table}
+
+\subsection*{Implementation}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        \textbf{Greek Phrases}       \\ \midrule
+        Αυστηρά για προσωπική χρήση  \\
+        Μόνο για προσωπική χρήση     \\ \bottomrule
+    \end{tabular}
+    \caption{The Greek phrases used as exclusion terms in the TOS parser.}
+    \label{tab:impl_greek_exclusion_terms}
+\end{table}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+        Greek       & English          \\ \midrule
+        ΟΡΟΙ ΧΡΗΣΗΣ & Terms of service \\
+        Όροι Χρήσης & Terms of Service \\
+        Όροι χρήσης & TERMS OF SERVICE \\
+        ΌΡΟΙ ΧΡΉΣΗΣ & Terms of use     \\
+        όροι χρήσης & Terms of Use     \\
+                    & TERMS OF USE     \\ \bottomrule
+    \end{tabular}
+    \caption{Greek and English terms used to identify Terms of Service links.}
+    \label{tab:tos_phrases}
+\end{table}
+
+\section{Code}
+
+Due to the size of the project, the source code has been moved to GitHub. The full repo can be found here \url{https://github.com/george-kampanos/i-like-cookies}
+
+\begin{enumerate}[label=\textbf{A.2.\arabic*}:, ref=A.2.\arabic*, leftmargin=1.65cm]
+    \item \label{app:code_design_websites_lists} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step1a_url_parser.py}
+    \item \label{app:code_design_robots} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step1b_checker_robots.py}
+    \item \label{app:code_design_tos} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step1c_checker_tos.py}
+    \item \label{app:code_idcac_parser} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step2a_css_selectors_parser.py}
+    \item \label{app:code_openwpm_starter} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step2b_openwpm_cookie_parser.py}
+    \item \label{app:code_openwpm_browser_commands} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/Commands/browser_commands.py} 
+    \item \label{app:code_openwpm_command_executor} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/Commands/command_executor.py}
+    \item \label{app:code_openwpm_command_sequence} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/CommandSequence.py}
+    \item \label{app:code_openwpm_cookie_utils} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/Commands/utils/cookie_utils.py}
+    \item \label{app:code_openwpm_cookie_banner} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/Classes/CookieBanner.py}
+    \item \label{app:code_openwpm_types} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/OpenWPM/automation/Commands/Types.py}
+    \item \label{app:code_options_parser} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/step3a_parse_cookie_banners.py}
+    \item \label{app:code_rq1} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/rq1.sql}
+    \item \label{app:code_rq2_3} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/rq2_3.py}
+    \item \label{app:code_rq4_5} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/rq4_5.sql}
+    \item \label{app:code_rq6} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/rq6.sql}
+    \item \label{app:code_rq7} \url{https://github.com/george-kampanos/i-like-cookies/blob/master/code/rq7.py}
+\end{enumerate}
+
+\section{Spreadsheets}
+
+\begin{enumerate}[label=\textbf{A.3.\arabic*}:, ref=A.3.\arabic*, leftmargin=1.65cm]
+    \item \label{app:data_analysis_spreadsheet} \textbf{Data Analysis Spreadsheet}: \url{https://github.com/george-kampanos/i-like-cookies/blob/master/data/data-analysis.xlsx}
+\end{enumerate}
+
+\end{document}

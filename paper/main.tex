@@ -1,0 +1,120 @@
+\documentclass[12pt]{extreport}
+
+% Page styles
+\usepackage[top=2.5cm, bottom=4cm, left=4cm, right=4cm]{geometry}
+\usepackage[noadjust]{cite}
+\usepackage{nameref, varioref, hyperref, cleveref, titlesec}
+
+\setlength{\parindent}{8pt}
+\setlength{\parskip}{8pt}
+
+\renewcommand*{\Itemautorefname}{Item}
+\renewcommand*{\chapterautorefname}{Chapter}
+\renewcommand*{\sectionautorefname}{Section}
+\renewcommand*{\subsectionautorefname}{Subsection}
+\renewcommand*{\subsubsectionautorefname}{Subsubsection}
+\renewcommand*{\paragraphautorefname}{Paragraph}
+\renewcommand*{\Hfootnoteautorefname}{Footnote}
+
+\titleformat{\chapter} {\Huge\bfseries}{\thechapter}{20pt} {\Huge}
+\titlespacing*{\chapter}{0pt}{35pt}{20pt}
+
+% Greek support
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta}
+
+% Font family to comply with marking scheme
+% \usepackage[scaled]{helvet}
+% \usepackage[T1]{fontenc}
+% \renewcommand\familydefault{\sfdefault}
+
+% Additional packages to make this report look sexy af
+\usepackage{subfiles, enumitem, dirtytalk, pgfplots, caption, subcaption, pgf-pie, xcolor, graphicx, booktabs, amssymb, appendix, listings, bchart}
+\usetikzlibrary{shadows}
+\pgfplotsset{compat=1.17}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{lst_style}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\pagenumbering{roman}
+
+\begin{document}
+
+    \chapter*{Acknowledgements}
+    \label{cha:acks}
+    \subfile{chapters/acks}
+    
+    \chapter*{Abstract}
+    \label{cha:abstract}
+    \subfile{chapters/abstract}
+
+    \chapter*{Statement of Ethics}
+    \label{cha:ethics}
+    \subfile{chapters/ethics}
+
+    \tableofcontents
+    \listoffigures
+    \listoftables
+
+    \chapter{Introduction}
+    \label{cha:introduction}
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+    \subfile{chapters/introduction}
+
+    \chapter{Related Work}
+    \label{cha:lit_review}
+    \subfile{chapters/lit_review}
+
+    \chapter{Methodology}
+    \label{cha:methodology}
+    \subfile{chapters/methodology}
+
+    \chapter{Implementation}
+    \label{cha:implementation}
+    \subfile{chapters/implementation}
+
+    \chapter{Data Analysis}
+    \label{cha:results}
+    \subfile{chapters/results}
+
+    \chapter{Discussion}
+    \label{cha:discussion}
+    \subfile{chapters/discussion}
+
+    \chapter{Conclusion}
+    \label{cha:conclusion}
+    \subfile{chapters/conclusion}
+
+    \appendix
+    \chapter{Appendix}
+    \label{cha:appendix}
+    \subfile{chapters/appendix}
+
+    \nocite{*}
+    \bibliographystyle{IEEEtran}
+    \bibliography{Bibliography}
+
+\end{document}
