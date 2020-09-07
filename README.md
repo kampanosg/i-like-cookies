@@ -22,7 +22,7 @@ Furthermore, we found evidence that websites nudge users towards privacy intrusi
 You can see the full set of results in the [`data`](https://github.com/george-kampanos/i-like-cookies/tree/master/data) directory of this Github. 
 
 ## The paper
-You can download and read the full paper [here](). It discusses in detail all the code and methods that were mentioned here. 
+You can download and read the full paper [here](https://github.com/george-kampanos/i-like-cookies). It discusses in detail all the code and methods that were mentioned here. 
 
 Hope you've enjoyed my MSc Project! Drop me a line if you repeated the study for your country (or just want to say hi) [here](https://uk.linkedin.com/in/kampanosg). 
 
