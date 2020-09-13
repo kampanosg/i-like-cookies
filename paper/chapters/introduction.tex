@@ -1,20 +1,23 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-EU citizens engage in a wide range of activities online which include but are not limited to banking, social media and shopping. According to the Digital Economy and Society Index (DESI), in 2019 Sweden, Denmark and the UK have the most advanced digital economies while Romania, Poland and Greece score the lowest in the same index \cite{desi_2019}.
+EU citizens engage in a wide range of activities online which include but are not limited to banking, social media and shopping. According to the Digital Economy and Society Index (DESI), in 2019 Sweden, Denmark and the UK have the most advanced digital economies while Romania, Poland and Greece score the lowest in the same index~\cite{desi_2019}.
 
-Even though 85\% of Europeans used the internet in 2019, the COVID-19 pandemic is expected to increase that number in a significant way \cite{desi_2020}. However, with the increase in internet usage, there has been a rise in the amount of information collected by websites, such as user location \cite{hern_2018}. Furthermore, there has been a significant increase in online tracking with the use of Third-Party Cookies (TPs) \cite{roesner_2012}, for the purposes of targeted advertising. 
+Even though 85\% of Europeans used the internet in 2019, the COVID-19 pandemic is expected to increase that number in a significant way~\cite{desi_2020}. However, with the increase in internet usage, there has been a rise in the amount of information collected by websites, such as user location~\cite{hern_2018}. Furthermore, there has been a significant increase in online tracking with the use of Third-Party Cookies (TPs)~\cite{roesner_2012}, for the purposes of targeted advertising. 
 
 Thus, the rapid growth of the internet and its online services has brought a new set of challenges and risks to users and governments alike. While the EU and the UK have introduced legislation in an attempt to mitigate and control those risks, the privacy of internet users at risk on a daily basis. 
 
 \section{Legislation}
-The EU and the UK have implemented laws in an attempt to protect their citizens from large-scale data collection. Furthermore, such legislation gives the ability for governments to bring companies to justice for mishandling personal information, as seen from the Cambridge Analytica scandal \cite{guardian_analytica}.
+The EU and the UK have implemented laws in an attempt to protect their citizens from large-scale data collection. Furthermore, such legislation gives the ability for governments to bring companies to justice for mishandling personal information, as seen from the Cambridge Analytica scandal~\cite{guardian_analytica}.
 
 \subsubsection{European Union}
-The General Data Protection Regulation (GDPR) is a data protection and privacy law in the European Union that came into effect in May 2018. The primary goal of the GDPR is to give the ability to citizens to control their personal information online. For instance, it allows users to request their data held by companies and also their data erased. Furthermore, websites are required to disclose if they have implemented data collection mechanisms, as well as how long the data is going to be retained for and whether they are going to be shared with third parties or outside the EU \cite{gdpr_legal_text}.
+The General Data Protection Regulation (GDPR) is a data protection and privacy law in the European Union that came into effect in May 2018. The primary goal of the GDPR is to give the ability to citizens to control their personal information online. For instance, it allows users to request their data held by companies and also their data erased. Furthermore, websites are required to disclose if they have implemented data collection mechanisms, as well as how long the data is going to be retained for and whether they are going to be shared with third parties or outside the EU~\cite{gdpr_legal_text}.
 
 \subsubsection{United Kingdom}
-The Data Protection Act of 2018, is a UK parliament Act that aims to update the data privacy laws in the United Kingdom \cite{dpa_2018} (Data Protection Act 2018). Furthermore, It has been written to complement the GDPR but it is not limited by the GDPR’s provisions. 
+The Data Protection Act of 2018, is a UK parliament Act that aims to update the data privacy laws in the United Kingdom~\cite{dpa_2018} (Data Protection Act 2018). Furthermore, It has been written to complement the GDPR but it is not limited by the GDPR’s provisions. 
+
+\subsubsection{Greece}
+Since Greece is part of the European Union, it follows the laws set out by the GDPR. However, since \say{aspects of the regulation are to be determined by national law}~\cite{gdpr_legal_text}, Greece has it's own Data Protection Authority (HDPA) (\url{https://www.dpa.gr/}). Furthermore, all subsequent Data Protection laws (e.g 4624/2019 \cite{gr_gdpr_law}) are made to complement the GDPR. 
 
 \section{Cookie Banners}
 Cookie banners are pop-ups that appear when users visit a website for the first time. They can either take up the full screen, forcing users to interact with them before continuing to the content. On the other hand, some Cookie Banners appear as small bars allowing users to bypass them. Figure \ref{fig:intro_cookie_guardian}, depicts the \say{full-screen} Cookie Banner of The Guardian (\url{https://theguardian.com}) and Figure \ref{fig:intro_cookie_york} shows the Cookie Notice implementation of the University of York’s (\url{https://york.ac.uk}) which does not force the user to interact with it. 
@@ -22,15 +25,15 @@ Cookie banners are pop-ups that appear when users visit a website for the first 
 \begin{figure}[ht!]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{images/intro/guardian}
-        \caption{The \say{full screen} Cookie Banner shown to The Guardian's visitors.}
-        \label{fig:intro_cookie_guardian}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{images/intro/york}
         \caption{The \say{bypass-able} Cookie Banner shown to York Uni's visitors.}
         \label{fig:intro_cookie_york}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/intro/guardian}
+        \caption{The \say{full screen} Cookie Banner shown to The Guardian's visitors.}
+        \label{fig:intro_cookie_guardian}
     \end{subfigure}
     \caption{Two different Cookie Banner implementation approaches.}
     \label{fig:intro_cookie}
@@ -43,7 +46,7 @@ Cookie notices can be a valuable tool for EU and UK and citizens to take control
 \section{Motivation}
 It is evident that the ubiquitous nature of Cookie Banners means that they are rapidly becoming part of a user’s daily web browsing experience. Especially after the GDPR came into force in 2018, more and more websites have added such notice. 
 
-Since users increasingly have to deal with these notices, this project aims to provide a better understanding of Cookie Banners and the privacy options that they provide. More specifically, the research will focus on the types of Cookie Banners that users have to interact on a daily basis, whether visitors have a choice on whether they are being tracked and how the wording on those cookies notices may affect users’ perception of privacy and tracking.
+Since users increasingly have to deal with these notices, this project aims to provide a better understanding of Cookie Banners and the privacy options that they provide. More specifically, the research will focus on the types of Cookie Banners that users have to interact on a daily basis, whether visitors have a genuine choice on whether they are being tracked and how the wording on those cookies notices may affect users’ perception of privacy and tracking.
 
 \section{Aim}
 This project focuses on the Cookie Banners in Greek as well as UK websites. These countries were chosen for 2 reasons. Firstly, they both adhere to very similar data protection laws, namely the GDPR and the Data Protection Act of 2018 and therefore, it is expected that most websites in these countries will have Cookie Notices. Secondly, both countries vastly differ in language and population size. Thus, potential differences in how the two populations experience the internet and the Cookie Banners are going to be highlighted.
@@ -65,7 +68,7 @@ In order to understand Cookie Banners better and how they affect the users’ in
     \item \label{rq:direct_opt_out} How many Cookie Banners offer their users a direct \say{opt-out from tracking} option?
     \item \label{rq:no_options} How many Cookie Banners do not offer any option at all and inform their users that by \say{using this website, they agree to Third-Party Cookies and tracking}?
     \item \label{rq:common_ctas} What is the most common privacy option provided by the Cookie Banners? 
-    \item \label{rq:manage_options_count} How many Cookie Banners allow their users to manage their privacy settings and control which vendors track them?
+    \item \label{rq:manage_options_count} What proportion of Cookie Banners allow their users to manage their privacy settings and control which vendors track them?
     \item \label{rq:common_privacy_txt} What is the average length of the Cookie Banner privacy text and what are the most common terms that are used to inform users about the use of Cookie Banners?
 \end{enumerate}
     

@@ -21,7 +21,7 @@ Each website was checked in order to determine whether they allow crawlers. The 
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}lll@{}}
+    \begin{tabular}{@{}lrr@{}}
     \toprule
                      & Greece & UK              \\ \midrule
     Websites         & 3,361  & 19,097          \\
@@ -40,9 +40,9 @@ In total OpenWPM collected more than 15-million datapoints during the crawls in 
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                       & Greece             & UK         & Total        \\ \midrule
+                       & Greece             & UK         & Combined        \\ \midrule
         Callstacks     & 245,874            & 811,558    & 1,057,432    \\
         Crawl history  & 11,997             & 42,830     & 54,827       \\
         HTTP Redirects & 25,467             & 101,362    & 126,829      \\
@@ -58,6 +58,7 @@ In total OpenWPM collected more than 15-million datapoints during the crawls in 
     \label{tab:data_open_wpm}
 \end{table}
 
+\newpage
 \subsection{Computing Resources}
 Crawling and collecting the Cookie Banners for thousands of websites can be a highly computing-intensive task. Even though the software developed for the requirements of this project was heavily parallelised, a standard laptop (Macbook Pro, 1GB RAM, 2.2 GHz Quad-Core Intel Core i7) would still require over 24 hours in order to complete the crawl for Greece. Similarly, since the UK dataset contained 4 times more websites than the Greek one, the crawl would also take 4 times longer on the same laptop. This can impact testing, data accuracy and most importantly, repeatability of the project. 
 
@@ -71,9 +72,9 @@ After the data were normalised, the first query performed to the dataset was to 
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
     \toprule
-                   & Greece        & UK            & Greece + UK   \\ \midrule
+                   & Greece        & UK            & Combined   \\ \midrule
     Total websites & 3,031         & 11,930        & 14,961        \\
     Cookie Banners & 1,497         & 6,413         & 7,910         \\
     \%             & \textbf{49.3} & \textbf{53.7} & \textbf{52.8} \\ \bottomrule
@@ -102,33 +103,33 @@ Therefore, it is obvious that 374 Greek (12\%) and 1843 UK (15\%) websites have 
     \label{fig:prevalence_cookie_banners_tps}
 \end{figure}
 
-
+\newpage
 \subsection{Privacy Options}
 After the Cookie Banners were normalised, their privacy options were extracted based on their call to action and were manually categorised in the 4 categories introduced in Table \ref{tab:privacy_options_categories}. In total, 14,758 distinct privacy options were found. From these, 3,068 were from the Greek dataset and 11,690 belonged to the UK one. On average, Greek websites offered 2 privacy options on their Cookie Banners while the UK websites offered fewer than 2. Table \ref{tab:avg_options}, summarises the above findings and shows the totals and averages for both countries combined.
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                      & Greece         & UK             & Both          \\ \midrule
-        total options & 3,068          & 11,690         & 14,758         \\
-        total banners & 1,497          & 6,413          & 7,910          \\
-        average       & \textbf{2.04}  & \textbf{1.82}  & \textbf{1.93} \\ \bottomrule
+                      & Greece         & UK             & Combined          \\ \midrule
+        Total Options & 3,068          & 11,690         & 14,758         \\
+        Total Banners & 1,497          & 6,413          & 7,910          \\
+        Average       & \textbf{2.04}  & \textbf{1.82}  & \textbf{1.93} \\ \bottomrule
     \end{tabular}
     \caption{The average number of privacy options that Cookie Banners provide in Greece and the UK.}
     \label{tab:avg_options}
 \end{table}
 
-Since all the privacy options have been properly categorised, it is possible to show the most common privacy categories that websites offer in their Cookie Banners. For Greece, the most common category is the Affirmative with 1,417 options (46.19\%), then it is the Informational with 752 options, third is the Managerial with 596 options (19.43\%) and fourth the Non-Affirmative category with only 303 identified options (9.88\%).
+Since all the privacy options have been properly categorised, it is possible to show the most common privacy categories that websites offer in their Cookie Banners. For Greece, the most common category is the Affirmative with 1,417 options (46.1\%), then it is the Informational with 752 options, third is the Managerial with 596 options (19.4\%) and fourth the Non-Affirmative category with only 303 identified options (9.8\%).
 
-Interestingly, the UK follows an almost identical pattern with Greece on the distribution of the Cookie Banner options. The most dominant categories are the Affirmative and Informational with 5,365 (48.2\%) and 4,405 (37.68\%) options respectively. Then, the Managerial category comes third with 1,289 options (11.03\%) and finally, the Non-Affirmative category with only 361 opt-out options (3.09\%). Figure \ref{fig:priv_categories_breakdown}, depicts the similarities of the dominant and non-dominant privacy option categories discussed here. 
+Interestingly, the UK follows an almost identical pattern with Greece on the distribution of the Cookie Banner options. The most dominant categories are the Affirmative and Informational with 5,365 (48.2\%) and 4,405 (37.6\%) options respectively. Then, the Managerial category comes third with 1,289 options (11\%) and finally, the Non-Affirmative category with only 361 opt-out options (3\%). Figure \ref{fig:priv_categories_breakdown}, depicts the similarities of the dominant and non-dominant privacy option categories discussed here. 
 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval        & Greece & UK    \\
     Affirmative     & 46.2   & 48.2  \\
-    Non-Affirmative & 9.88   & 3.09  \\
-    Managerial      & 19.43  & 11.03 \\
-    informational   & 24.51  & 37.68 \\
+    Non-Affirmative & 9.8   & 3  \\
+    Managerial      & 19.4  & 11 \\
+    Informational   & 24.5  & 37.6 \\
 }\categories
 
 \begin{figure}[ht]
@@ -140,7 +141,7 @@ Interestingly, the UK follows an almost identical pattern with Greece on the dis
                 width=\textwidth,
                 height=.5\textwidth,
                 legend style={at={(0.95,1.1)}, anchor=north},
-                symbolic x coords={Affirmative,Non-Affirmative,Managerial,informational},
+                symbolic x coords={Affirmative,Non-Affirmative,Managerial,Informational},
                 xtick=data,
                 nodes near coords,
                 nodes near coords align={vertical},
@@ -160,15 +161,15 @@ Interestingly, the UK follows an almost identical pattern with Greece on the dis
 
 While Cookie Banners are used by websites to inform users about tracking activity and allow them to manage their privacy settings, a number of Cookie Notices offer very limited privacy options and sometimes none at all. These types of Cookie Banners, usually inform the user that just \say{by using this website} they agree to be tracked and offer a dismiss button or a link to a privacy policy page or nothing at all.
 
-However, most websites seem to offer at least one privacy option to their users. Specifically, in Greece, only 5 websites (0.33\%) offer no options at all. Similarly, the UK has a low number of no-option Cookie Banners with only 59 websites (0.92\%) that do not offer any privacy options at all. 
+However, most websites seem to offer at least one privacy option to their users. Specifically, in Greece, only 5 websites (0.3\%) offer no options at all. Similarly, the UK has a low number of no-option Cookie Banners with only 59 websites (0.9\%) that do not offer any privacy options at all. 
 
-On the other hand, single privacy options tend to be frequent among Cookie Banner implementations. Most commonly, Cookie Banners will either only offer an Affirmative option or an Informational one. More specifically, in Greece, there are 253 websites (16.9\%) that offer only an Affirmative option and 59 websites (3.94\%) offering only a link to their privacy policy. In the UK, 1,225 websites (19.10\%) allow users to only accept cookies and 563 websites (8.78\%) only show a link to their privacy policy page on the Cookie Notice. Table \ref{tab:no_options_cookie_banners}, summarises the above findings.
+On the other hand, single privacy options tend to be frequent among Cookie Banner implementations. Most commonly, Cookie Banners will either only offer an Affirmative option or an Informational one. More specifically, in Greece, there are 253 websites (16.9\%) that offer only an Affirmative option and 59 websites (3.9\%) offering only a link to their privacy policy. In the UK, 1,225 websites (19\%) allow users to only accept cookies and 563 websites (8.7\%) only show a link to their privacy policy page on the Cookie Notice. Table \ref{tab:no_options_cookie_banners}, summarises the above findings.
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                             & Greece & UK   & Both \\ \midrule
+                             & Greece & UK   & Combined \\ \midrule
         Total Cookie Banners & 1497   & 6413 & 7910 \\
         No options           & 5      & 59   & 64   \\
         Only Informational   & 59     & 563  & 622  \\ 
@@ -183,9 +184,9 @@ It is evident that the results are very similar for both Greece and the UK, as d
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval              & Greece & UK    \\
     only Non-Affirmative  & 0      & 0 \\
-    no options            & 0.33   & 0.92  \\
-    only informational    & 3.94   & 8.78  \\
-    only Affirmative      & 16.9   & 19.10 \\
+    no options            & 0.3   & 0.9  \\
+    only informational    & 3.9   & 8.7  \\
+    only Affirmative      & 16.9   & 19.1 \\
 }\dps
 
 \begin{figure}[ht]
@@ -210,7 +211,7 @@ It is evident that the results are very similar for both Greece and the UK, as d
             \legend{Greece, UK}
         \end{axis}
     \end{tikzpicture}
-    \caption{The percentage of websites offering a single option only.}
+    \caption{The percentage of websites offering no option or a single option only.}
     \label{fig:single_options}
 \end{figure}
 
@@ -218,16 +219,16 @@ It is evident that the results are very similar for both Greece and the UK, as d
 
 An important aspect of Cookie Banners is to allow users to quickly and effectively reject trackers from installing cookies on their web browsers. However, it seems that a direct-opt out button has a very low adaptation among websites in both countries that were surveyed as part of this project.
 
-More specifically, only 303 (9.88\%) Greek websites offered a direct opt-out option. Similarly, only 361 (3.09\%) Non-Affirmative options were identified in the UK dataset. While opt-out buttons seem to be slightly more frequent in Greece, Non-Affirmative privacy options are extremely rare in both countries. The above results are summarised in Table \ref{tab:opt_outs}.
+More specifically, only 303 (9.8\%) Greek websites offered a direct opt-out option. Similarly, only 361 (3\%) Non-Affirmative options were identified in the UK dataset. While opt-out buttons seem to be slightly more frequent in Greece, Non-Affirmative privacy options are extremely rare in both countries. The above results are summarised in Table \ref{tab:opt_outs}.
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                              & Greece          & UK                & Both            \\ \midrule
+                              & Greece          & UK                & Combined            \\ \midrule
         total options         & 3068            & 11690             & 14758           \\
-        direct opt-outs & 303             & 361               & 664             \\
-        \%                    & \textbf{9.88}  & \textbf{3.09}    & \textbf{4.50}  \\ \bottomrule
+        direct opt-outs       & 303             & 361               & 664             \\
+        \%                    & \textbf{9.8}    & \textbf{3}        & \textbf{4.5}  \\ \bottomrule
     \end{tabular}
     \caption{The number of direct opt-out buttons offered by Cookie Banners.}
     \label{tab:opt_outs}
@@ -236,13 +237,13 @@ More specifically, only 303 (9.88\%) Greek websites offered a direct opt-out opt
 \subsection{Managing Cookies}
 Another important aspect of Cookie Banners is to allow visitors to manage their privacy settings. For instance, a number of websites allow users to opt-out from specific trackers. 
 
-Managerial options are significantly more prevalent compared to the Non-Affirmative ones. More specifically, Greek websites offer 596 (19.43\%) Cookie Banners with an \say{options} button. Similarly, in the UK 1,289 (11.03\%) Managerial privacy options were identified. Interestingly, \say{options} buttons appear to be slightly more frequent in Greek websites compared to UK ones. Table \ref{tab:Managerial_options}, summarises the above findings.
+Managerial options are significantly more prevalent compared to the Non-Affirmative ones. More specifically, Greek websites offer 596 (19.4\%) Cookie Banners with an \say{options} button. Similarly, in the UK 1,289 (11\%) Managerial privacy options were identified. Interestingly, \say{options} buttons appear to be slightly more frequent in Greek websites compared to UK ones. Table \ref{tab:Managerial_options}, summarises the above findings.
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                        & Greece & UK   & Total \\ \midrule
+                          & Greece & UK   & Combined \\ \midrule
         Cookie Banners    & 1497   & 6413 & 7910  \\
         Managerial option & 596    & 1289 & 1885  \\ \bottomrule
     \end{tabular}
@@ -259,13 +260,13 @@ More specifically, a total of 1,131 unique CTAs were identified in the dataset. 
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                                 & \textbf{Greece} & \textbf{UK} & \textbf{Total} \\ \midrule
-        \textbf{Affirmative}     & 170             & 250         & 420            \\
-        \textbf{Non-Affirmative} & 58              & 34          & 92             \\
-        \textbf{Managerial}      & 83              & 107         & 190            \\
-        \textbf{Informational}   & 170             & 259         & 429            \\ \bottomrule
+                        & Greece & UK   & Combined  \\ \midrule
+        Affirmative     & 170    & 250  & 420       \\
+        Non-Affirmative & 58     & 34   & 92        \\
+        Managerial      & 83     & 107  & 190       \\
+        Informational   & 170    & 259  & 429       \\ \bottomrule
     \end{tabular}
     \caption{Total number of unique terms per privacy category.}
     \label{tab:unique_ctas}
@@ -278,14 +279,14 @@ Interestingly, the most common CTAs for both Greece and the UK are very similar 
     I accept       & 34.5   \\
     ok             & 18.5   \\
     I agree        & 15.7   \\
-    I understand   & 2.61   \\
-    Accept all     & 2.31   \\
+    I understand   & 2.6   \\
+    Accept all     & 2.3   \\
 }\grAffirmativeCtas
 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval        & Non-Affirmative \\
     I don't agree   & 30     \\
-    I don't accept  & 18.15  \\
+    I don't accept  & 18.1  \\
     Reject          & 9      \\
     No              & 7      \\
     Decline         & 3.6    \\
@@ -303,7 +304,7 @@ Interestingly, the most common CTAs for both Greece and the UK are very similar 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval            & Informational \\
     More                & 12.6  \\
-    Learn more          & 16.09  \\
+    Learn more          & 16  \\
     More information    & 8.5   \\
     Read more           & 7.7   \\
     Privacy policy      & 6   \\
@@ -423,8 +424,8 @@ Interestingly, the most common CTAs for both Greece and the UK are very similar 
 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval    & Non-Affirmative \\
-    Decline     & 42.38     \\
-    Reject      & 17.45  \\
+    Decline     & 42.3     \\
+    Reject      & 17.4  \\
     Disagree    & 7.8      \\
     No thanks   & 6.6      \\
     Reject all  & 4.7    \\
@@ -442,10 +443,10 @@ Interestingly, the most common CTAs for both Greece and the UK are very similar 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval         & Informational \\
     Learn more       & 15   \\
-    Cookie policy    & 13.4  \\
+    Cookie policy    & 13  \\
     Privacy policy   & 12   \\
-    Read more        & 7.26   \\
-    More info        & 5.95     \\
+    Read more        & 7.2   \\
+    More info        & 5.9     \\
 }\ukInformationalCtas
 
 \begin{figure}[ht]
@@ -557,36 +558,36 @@ On average, the Cookie Banner privacy text is 59 words long in both Greece as we
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lrrr@{}}
         \toprule
-                       & Greece & UK    & Total \\ \midrule
-        Cookie Banners & 1497   & 6413  & 7910  \\
-        avg. length    & 66.2   & 52.01 & 59.1  \\ \bottomrule
+                          & Greece & UK    & Combined \\ \midrule
+        Cookie Banners    & 1497   & 6413  & 7910  \\
+        Average length    & 66.2   & 52    & 59.1  \\ \bottomrule
     \end{tabular}
     \caption{The average length (words) of the privacy text in the Cookie Banners}
     \label{tab:privacy_txt_len}
 \end{table}
 
-Although the Greek Cookie Banner text is longer on average, their content appears to be identical. Using the TF-IDF method, the most common terms were identified for each country. More specifically, the most common Cookie Banner terms were \say{we use} (3\%), \say{experience} (2.96\%), \say{better} (2.8\%), \say{by accepting} (2.3\%) and \say{website} (2.3\%). 
+Although the Greek Cookie Banner text is longer on average, their content appears to be identical. Using the TF-IDF method, the most common terms were identified for each country. More specifically, the most common Cookie Banner terms were \say{we use} (3\%), \say{experience} (2.9\%), \say{better} (2.8\%), \say{by accepting} (2.3\%) and \say{website} (2.3\%). 
 
-Interestingly, the most frequent Cookie Banner privacy terms in the UK are almost the same and as frequent as the Greek terms. Specifically, those are \say{uses} (3.5\%), \say{best} (3\%), \say{ensure} (2.77\%), \say{site} (2.6\%), \say{experience} (2.6\%). The TF-IDF results and how they compare between each country are depicted in Figure \ref{fig:res_tf_idf}.
+Interestingly, the most frequent Cookie Banner privacy terms in the UK are almost the same and as frequent as the Greek terms. Specifically, those are \say{uses} (3.5\%), \say{best} (3\%), \say{ensure} (2.7\%), \say{site} (2.6\%), \say{experience} (2.6\%). The TF-IDF results and how they compare between each country are depicted in Figure \ref{fig:res_tf_idf}.
 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval       & Greece \\
-    uses           & 3.01   \\
-    experience     & 2.96   \\
-    better         & 2.81   \\
-    accepting   & 2.33   \\
-    website        & 2.30   \\
+    uses           & 3   \\
+    experience     & 2.9   \\
+    better         & 2.8   \\
+    accepting   & 2.3   \\
+    website        & 2.3   \\
 }\grTFIDF
 
 \pgfplotstableread[row sep=\\,col sep=&]{
     interval    & UK     \\
-    uses        & 3.50   \\
-    best        & 2.98   \\
-    ensure      & 2.77   \\
-    site        & 2.66   \\
-    experience  & 2.60   \\
+    uses        & 3.5   \\
+    best        & 2.9   \\
+    ensure      & 2.7   \\
+    site        & 2.6   \\
+    experience  & 2.6   \\
 }\ukTFIDF
 
 \begin{figure}[ht!]

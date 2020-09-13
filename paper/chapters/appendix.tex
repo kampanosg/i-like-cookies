@@ -30,12 +30,14 @@
     \begin{tabular}{@{}ll@{}}
         \toprule
         \textbf{Greek Phrases}       \\ \midrule
-        Αυστηρά για προσωπική χρήση  \\
-        Μόνο για προσωπική χρήση     \\ \bottomrule
+        Αυστηρά για προσωπική χρήση (strictly for personal use)  \\
+        Μόνο για προσωπική χρήση (for personal use only)     \\ \bottomrule
     \end{tabular}
     \caption{The Greek phrases used as exclusion terms in the TOS parser.}
     \label{tab:impl_greek_exclusion_terms}
 \end{table}
+
+\newpage
 
 \begin{table}[ht]
     \centering
@@ -53,7 +55,10 @@
     \label{tab:tos_phrases}
 \end{table}
 
+\textbf{NB}: Every entry in the Greek column of Table \ref{tab:tos_phrases} translates to \say{Terms of Service}. However, the Greek language uses a tone system and therefore, the characters \say{η} and \say{ή} are not the same. During testing, it was obvious that a significant number of Greek websites (almost $1/3$) were not using the tone system for some of their links, including the Terms of Service ones. Therefore, the code shown in Listing \ref{lst:design_tos} had to check the same term twice $-$ once for the term using tones and then without. 
+
 \section{Code}
+\label{section:appendix_code}
 
 Due to the size of the project, the source code has been moved to GitHub. The full repo can be found here \url{https://github.com/george-kampanos/i-like-cookies}
 

@@ -28,10 +28,10 @@ The first step of the Cookie Banner collection process is to identify the most p
 \subsection{Gathering links}
 The primary focus of this project is to study Cookie Notices in Greek as well as UK websites. Therefore, it is essential to identify websites in both countries and ideally the most popular ones there in order to build a robust and diverse dataset.
 
-For identifying the top websites in the target countries, this project utilised the Tranco list which was created by Le Pochat et al. \cite{LePochat2019} Tranco, aggregates the top results from lists provided by Alexa (\url{https://alexa.com}), Cisco Umbrella (\url{https://umbrella.cisco.com/}), Majestic (\url{https://majestic.com/}), and Quantcast (\url{https://quantcast.com/}) and makes them available in a CSV format. In total, the Tranco list contains 1-million websites from across the world ordered by their rank.
+For identifying the top websites in the target countries, this project utilised the Tranco list which was created by Le Pochat et al.~\cite{LePochat2019} Tranco, aggregates the top results from lists provided by Alexa (\url{https://alexa.com}), Cisco Umbrella (\url{https://umbrella.cisco.com/}), Majestic (\url{https://majestic.com/}), and Quantcast (\url{https://quantcast.com/}) and makes them available in a CSV format. In total, the Tranco list contains 1-million websites from across the world ordered by their rank.
 
 \subsubsection{Filtering websites by their TLDs \& SLDs}
-Both Greece and the UK have their own Top-Level Domain (TLD) which are .gr and .uk respectively. While Greece was also granted the \say{el} (or \say{.ελ} in Greek) TLD by IANA, after petitioning for years \cite{iana_el}, it has seen a low adoption by businesses and government agencies and therefore, it has not been taken into consideration in this project. Therefore, since each TLD is unique to a country, they can be used to find and retrieve websites from Tranco’s large dataset. 
+Both Greece and the UK have their own Top-Level Domain (TLD) which are .gr and .uk respectively. While Greece was also granted the \say{el} (or \say{.ελ} in Greek) TLD by IANA, after petitioning for years~\cite{iana_el}, it has seen a low adoption by businesses and government agencies and therefore, it has not been taken into consideration in this project. Therefore, since each TLD is unique to a country, they can be used to find and retrieve websites from Tranco’s large dataset. 
 
 Furthermore, Second-Level Domains (SLDs), such as .gov.uk, can also be used to enhance the filtering and also demonstrate the category that a website falls into. Thus, this project takes advantage of a wide range of Top and Second-Level Domains, in order to identify the websites in Greece as well as the UK. Table \ref{tab:impl_tlds}, summarises the TLDs and SLDs that are used to filter and retrieve websites from the Tranco list.
 
@@ -52,7 +52,7 @@ sch.gr          & .sch.uk         & For educational authorities such as high sch
                 & .nhs.uk         & Used by the NHS and its trusts                           \\
                 & .police.uk      & For the UK police and its local forces                   \\ \bottomrule
 \end{tabular}
-\caption{The TLDs and SLDs for Greece \cite{gr_registar} and the UK \cite{nominet_additional_domains, nominet_rules} used to filter the Tranco list.}
+\caption{The TLDs and SLDs for Greece~\cite{gr_registar} and the UK~\cite{nominet_additional_domains, nominet_rules} used to filter the Tranco list.}
 \label{tab:impl_tlds}
 \end{table}
 
@@ -68,7 +68,7 @@ For tackling the local nuances discussed above, additional lists have been used 
 
     \item \textbf{Kadaza} (\url{https://kadaza.co.uk}): Provides the 24 most popular websites in the UK in a wide range of categories such as news, shopping and travel. The list is manually curated by the Kadaza team by \say{monitoring the latest website traffic data and local website trends};
 
-    \item \textbf{Finder.com} (\url{https://finder.com}): Compares online online retailers and services for a number of different categories such as beauty, fitness, energy providers, mortgages etc. Finder.com manually curates its lists and updates them daily in order to ensure best quality. Because of the rise of online shopping due to the Coronavirus pandemic \cite{skeldon_2020, columbus_2020}, ensuring that all major retailers are included in this study is essential. Therefore, Finder provided a reliable source for finding UK online retailers. 
+    \item \textbf{Finder.com} (\url{https://finder.com}): Compares online online retailers and services for a number of different categories such as beauty, fitness, energy providers, mortgages etc. Finder.com manually curates its lists and updates them daily in order to ensure best quality. Because of the rise of online shopping due to the Coronavirus pandemic~\cite{skeldon_2020, columbus_2020}, ensuring that all major retailers are included in this study is essential. Therefore, Finder provided a reliable source for finding UK online retailers. 
 \end{itemize}
 
 While the above lists have not been used as the primary source for building the dataset, they provide a good solution on the issue of local nuances and they also provide a more diverse set of websites that may have never been studied before.
@@ -84,10 +84,10 @@ In order to build the dataset, a Python3 script was developed that applied the T
     \item \textbf{Merge the two sets}: The script merges the two sets. The final set contains the original set (e.g all the .gr domains) and the items of the second set that also exist in the Tranco list. 
 \end{enumerate}
 
-Finally, the remaining websites are stored in an SQLite database \cite{sqlite} in order to be easily accessible for further analysis. SQLite was chosen for the purposes of this project since it provides a fast and reliable SQL database implementation. However, the most important feature of SQLite is that it is self-contained and therefore, the database file can be easily shared and accessed, without the need for an SQL server. The source code for the above script can be found in Appendix \ref{app:code_design_websites_lists}.
+Finally, the remaining websites are stored in an SQLite database (\url{https://www.sqlite.org/}) in order to be easily accessible for further analysis. SQLite was chosen for the purposes of this project since it provides a fast and reliable SQL database implementation. However, the most important feature of SQLite is that it is self-contained and therefore, the database file can be easily shared and accessed, without the need for an SQL server. The source code for the above script can be found in Appendix \ref{app:code_design_websites_lists}.
 
 \subsection{Compliance with the Robots Exclusion Standard}
-The Robots Exclusion Standard, or simply known as robots.txt, can be used by websites to specify which parts of the website should not be processed by web crawlers and robots \cite{koster_1994}. Robots are used by search engines for categorisation purposes but can also be used by competitors to retrieve information about the website. Therefore, website administrators can choose to exclude certain directories from crawlers as shown in Figure \ref{fig:design_example_robots}. 
+The Robots Exclusion Standard, or simply known as robots.txt, can be used by websites to specify which parts of the website should not be processed by web crawlers and robots~\cite{koster_1994}. Robots are used by search engines for categorisation purposes but can also be used by competitors to retrieve information about the website. Therefore, website administrators can choose to exclude certain directories from crawlers as shown in Figure \ref{fig:design_example_robots}. 
 
 \begin{figure}[ht]
     \centering
@@ -112,7 +112,7 @@ For every $website in the dataset:
         Mark $website "uncrawlable"
 \end{lstlisting}
 
-The script utilises the reppy Python library \cite{reppy} that aids with parsing and analysing the robots.txt of a website. Furthermore, it has been parallelised using Python’s multiprocessing library in order to take advantage of every available CPU core in the system and reduce runtimes. Finally, the SQLite database containing the dataset is updated to reflect the crawl status of each website. The source code for the robots.txt compliance script can be found in Appendix \ref{app:code_design_robots}.
+The script utilises the reppy Python library~(\url{https://github.com/seomoz/reppy/}) that aids with parsing and analysing the robots.txt of a website. Furthermore, it has been parallelised using Python’s multiprocessing library in order to take advantage of every available CPU core in the system and reduce runtimes. Finally, the SQLite database containing the dataset is updated to reflect the crawl status of each website. The source code for the robots.txt compliance script can be found in Appendix \ref{app:code_design_robots}.
 
 \subsection{Compliance with the Terms of Service}
 In addition to the Robots Exclusion Standard, this project makes best efforts to comply with the Terms of Service (TOS) of the websites within the dataset. This was done for two reasons:
@@ -137,6 +137,7 @@ The exclusionary terms were selected after manually reading over 50 TOSs, from w
     \label{tab:design_tos_terms}
 \end{table}
 
+\newpage
 A Python3 script was developed that makes best efforts to ensure TOS compliance. More specifically, the script visits a website and looks for a TOS link. If a link is found, it visits the Terms of Service page and examines its text for terms or phrases that may indicate that the website refuses to be tracked. The algorithm used by the script is shown in Listing \ref{lst:design_tos}.
 
 \begin{lstlisting}[language=Python, caption=Pseudocode of the algorithm that the Terms of Service parser uses., label=lst:design_tos,captionpos=b, style=lst_style]
@@ -151,7 +152,7 @@ For every $website in dataset And robots.txt allows crawling:
         Mark website "crawlable"
 \end{lstlisting}
 
-The Terms of Service parser uses Python’s \say{request} library to navigate to websites and BeautifulSoup4 \cite{richardson2007beautiful}, a library that provides easy and efficient programmatic access to HTML elements. More specifically, the steps are taken by the TOS parser are summarised in the following list:
+The Terms of Service parser uses Python’s \say{request} library to navigate to websites and BeautifulSoup4~\cite{richardson2007beautiful}, a library that provides easy and efficient programmatic access to HTML elements. More specifically, the steps are taken by the TOS parser are summarised in the following list:
 
 \begin{enumerate}
     \item \textbf{Visit the website}: Using Python’s request library, the script makes a simple GET request to the URL and it pulls its HTML code for analysis;
@@ -178,7 +179,7 @@ After the dataset has been built, the next step is to visit the candidate websit
 
 \subsection{I Don't Care About Cookies}
 
-The GDPR requires websites to seek the users’ permission before installing tracking cookies on their web browser. However, if users browse the web anonymously then the same websites will ask for the user’s permission again. \say{I don’t care about cookies} (IDCAC) is a popular web browser extension that removes the Cookie Notices and saves the user \say{thousands of unnecessary clicks} \cite{kladnik}. 
+The GDPR requires websites to seek the users’ permission before installing tracking cookies on their web browser. However, if users browse the web anonymously then the same websites will ask for the user’s permission again. \say{I don’t care about cookies} (IDCAC) is a popular web browser extension that removes the Cookie Notices and saves the user \say{thousands of unnecessary clicks}~\cite{kladnik}. 
 
 In order to remove those notices, IDCAC has built a list of CSS selectors that websites use for their Cookie Notices. For example, Figure \ref{fig:design_skyexpress} depicts the HTML of a Cookie Banner found in SkyExpress, a popular Greek airline (\url{http://skyexpress.gr}). Notice that it has an \say{id} attribute which is set to \say{cookie-notice}. Thus, if the IDCAC list contains the CSS selector {\fontfamily{pcr}\selectfont \#cookie-notice}, the extension can effectively hide the Cookie Banner.
 
@@ -194,7 +195,7 @@ A similar technique was used by Eijk et al. when studying the Cookie Banners on 
 \begin{enumerate}
     \item \textbf{Download}: Retrieve a fresh copy of the \say{I don’t care about cookies} list from their website (\url{https://www.i-dont-care-about-cookies.eu/abp/}), to ensure that no new CSS selectors are missed. While Eijk et al. download and parse the IDCAC list every time their code is executed, this project processes the IDCAC list in a separate script (or a different sub-step) and adds the CSS selectors in a database. This was done for 2 reasons. Firstly, the IDCAC list is not updated regularly and therefore, there is no point in downloading it and parsing it every time the code is executed. Secondly, the set of websites parsed by OpenWPM are almost always the same and therefore, it is unlikely that OpenWPM will have to deal with different CSS selectors and Cookie Notices at every run;
     
-    \item \textbf{Parse}: Remove any unnecessary lines, comments or syntax around the CSS selectors and keep only the required content from the list. The IDCAC cookie parser implemented for this project is significantly optimised for better performance compared to the one introduced by Eijk et al. For instance, they use Python’s split method \cite{python_str_doc} to process different parts of the IDCAC list which can have a worst-case performance of $O(n)$. On the other hand, this project’s parser takes advantage of Python’s string cutting and slicing, which has a performance of $O(1)$. This can have a significant impact when processing over $16,000$ CSS elements;
+    \item \textbf{Parse}: Remove any unnecessary lines, comments or syntax around the CSS selectors and keep only the required content from the list. The IDCAC cookie parser implemented for this project is significantly optimised for better performance compared to the one introduced by Eijk et al. For instance, they use Python’s split method~\cite{python_str_doc} to process different parts of the IDCAC list which can have a worst-case performance of $O(n)$. On the other hand, this project’s parser takes advantage of Python’s string cutting and slicing, which has a performance of $O(1)$. This can have a significant impact when processing over $16,000$ CSS elements;
     
     \item \textbf{Save}: Store the CSS selectors in a database for caching purposes, as well as easy access, by other applications such as OpenWPM, as discussed above.
 \end{enumerate}
@@ -206,14 +207,14 @@ OpenWPM is an open-source tool, developed by Englehardt and Narayanan. It allows
 
 Unfortunately, OpenWPM has no way of detecting the existence of Cookie Notices on the websites that it visited. Therefore, this project has developed a novel way of extending the functionality of OpenWPM in order to effectively detect Cookie Banners and store relevant information about them. 
 
-More specifically, for each website OpenWPM checks whether it contains a CSS selector from the cached IDCAC list, using Selenium \cite{selenium}, which allows for searching the HTML code of the website. Once a selector has been identified, additional checks are made to ensure that this is not a false-positive. These additional checks are summarised in the following list: 
+More specifically, for each website OpenWPM checks whether it contains a CSS selector from the cached IDCAC list, using Selenium (\url{https://www.selenium.dev/}), which allows for searching the HTML code of the website. Once a selector has been identified, additional checks are made to ensure that this is not a false-positive. These additional checks are summarised in the following list: 
 
 \begin{enumerate}
     \item \textbf{Selenium check}: Ensure that Selenium returned valid HTML e.g. the length of the HTML;
     \item \textbf{Cookie check}: Verify that the HTML returned by Selenium contains the terms \say{cookie} or \say{cookies}.
 \end{enumerate}
 
-If the Cookie Banner has been successfully identified, then it is stored in a database for further analysis. The combination of the cached cookie selectors and Selenium’s efficient DOM \cite{wood1998document} search enables the Cookie Banner extension to be fast, efficient and fault-tolerant. 
+If the Cookie Banner has been successfully identified, then it is stored in a database for further analysis. The combination of the cached cookie selectors and Selenium’s efficient DOM~\cite{wood1998document} search enables the Cookie Banner extension to be fast, efficient and fault-tolerant. 
 
 Listing \ref{lst:design_openwpm_steps}, summarises the novel steps added to OpenWPM in order to detect the Cookie Banners.
 
@@ -259,6 +260,7 @@ openwpm\_cookie\_parser.py & A script that prepares and starts      & \ref{app:c
 \label{tab:impl_openwpm_files}
 \end{table}
 
+\newpage
 \subsection{Data Gathering}
 In addition to the Cookie Banner detection capabilities, the data gathering capabilities of OpenWPM were also enhanced as part of this project. More specifically, after a Cookie Banner is detected, a number of its attributes, as well as its source code, are stored in a database for further analysis. The information gathered per Cookie Banners include:
 
@@ -342,7 +344,7 @@ After the data has been normalised, it can then be searched in order to answer t
 \end{enumerate}
 
 \subsection{Querying with SQL \& Python}
-The primary goal of Step 3 was to structure the collected data into an easy-to-query data structure. This can be achieved by using standard SQL syntax \cite{bowman1996practical} and most research questions have been answered using that. 
+The primary goal of Step 3 was to structure the collected data into an easy-to-query data structure. This can be achieved by using standard SQL syntax~\cite{bowman1996practical} and most research questions have been answered using that. 
 
 However, there are instances where SQL cannot handle the types of calculations required to answer some of the research questions. Those instances have been handled by implementing the queries using Python. For example, Questions 2 and 3 required a more advanced representation of the data and it would have been challenging to achieve those results using SQL and therefore, Python was used instead. Table \ref{tab:impl_rqs_sc}, summarises the scripts that were developed to answer the research questions and which language they are written in. 
 
@@ -364,7 +366,7 @@ However, there are instances where SQL cannot handle the types of calculations r
 \end{table}
 
 \subsection{Determining the Term Frequency}
-In order to determine the most common terms in the privacy text of the Cookie Banners (\ref{rq:common_privacy_txt}), the Term Frequency Inverse Document Frequency (TF-IDF) method has been used \cite{jones1972statistical, ramos2003using}. With TF-IDF every term is weighted by dividing its frequency by the number of documents in the corpus, instead of representing that term by its raw frequency. Here, documents refer to the Cookie Banner privacy text in the dataset.
+In order to determine the most common terms in the privacy text of the Cookie Banners (\ref{rq:common_privacy_txt}), the Term Frequency Inverse Document Frequency (TF-IDF) method has been used~\cite{jones1972statistical, ramos2003using}. With TF-IDF every term is weighted by dividing its frequency by the number of documents in the corpus, instead of representing that term by its raw frequency. Here, documents refer to the Cookie Banner privacy text in the dataset.
 
 The first step is to calculate the Term Frequency (TF) of every term in the privacy policies dataset. This is done by dividing the number of occurrences of that word by the total number of words in the document as shown equation \ref{eq:tf}:
 
