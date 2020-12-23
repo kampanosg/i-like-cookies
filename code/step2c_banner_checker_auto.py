@@ -7,7 +7,7 @@ sqlite_connection = sqlite3.connect('./outp/cookies_uk.sqlite')
 sqlite_cursor = sqlite_connection.cursor()
 
 sqlite_cursor.execute('SELECT id, hash, website, banner_exists, html FROM cookies WHERE banner_exists = 0')
-rows = sqlite_cursor.fetchall()[5110:]
+rows = sqlite_cursor.fetchall()
 
 index = 0
 total_entries = len(rows)
