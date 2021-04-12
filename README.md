@@ -11,18 +11,14 @@ Moreover, OpenWPM, a popular web privacy measurement framework, was extended so 
 You can find all the code and how to run it under the [`code`](https://github.com/george-kampanos/i-like-cookies/tree/master/code) directory of this Git page. Why not give it a go in websites of your country? :) 
 
 ## Results
-Overall, this survey identified issues with GDPR (and Data Privacy Act 2018 for the UK) compliance across Greece and the UK. For instance, while we found Cookie Banners in over 50% of our dataset, there was an average of 12% of websites that did not display a Cookie Notice even though they used Third-Party Cookies for tracking (see below figure).
-
-![](https://github.com/george-kampanos/i-like-cookies/blob/master/paper/example_data/fig1.png)
-
-Furthermore, we found evidence that websites nudge users towards privacy intrusive options through the privacy options that they provide in their Cookie Banners. For example, almost all Cookie Banners displayed an "Accept" button (depicted in the next Figure).
-
-![](https://github.com/george-kampanos/i-like-cookies/blob/master/paper/example_data/fig2.png)
-
-You can see the full set of results in the [`data`](https://github.com/george-kampanos/i-like-cookies/tree/master/data) directory of this Github. 
+WIP...
 
 ## The paper
-You can download and read the full paper [here](https://github.com/george-kampanos/i-like-cookies/blob/master/paper.pdf). It discusses in detail all the code and methods that were mentioned here. 
+WIP...
+
+## Reference
+Please cite the following paper if you use this repository: 
+> George Kampanos and Siamak F. Shahandashti. "Accept All: The Landscape of Cookie Banners in Greece and the UK". To appear in the proceedings of the 36th International Conference on ICT Systems Security and Privacy Protection (IFIP SEC 2021).
 
 ---
 
