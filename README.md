@@ -28,7 +28,7 @@
 </p>
 
 <h3>Websites wants you to trust Cookie Banners</h3>
-<p>To  get  a  more  comprehensive  view  of  the  connotations  relayed  by  cookiebanner texts in the UK, we performed an automated sentiment analysis of thewords used in all UK banner texts using [NRCLex](https://github.com/metalcorebear/NRCLex). The analysis found that agenerally positive emotional affect was present in around 80% of the banner texts,whereas a generally negative affect was present in only around 14%. Besides, anoverwhelming majority (of more than 9 in 10) of the texts with a negative affectalso  had  a  positive  effect  present  as  well.  Looking  at  more  specific  emotionalaffects, trust and joy are among the most prevalent, present in around 66% and46% of the texts, respectively. The prevalence of general and specific emotionalaffects is shown in the figure below.</p<
+<p>To  get  a  more  comprehensive  view  of  the  connotations  relayed  by  cookiebanner texts in the UK, we performed an automated sentiment analysis of thewords used in all UK banner texts using [NRCLex](https://github.com/metalcorebear/NRCLex). The analysis found that agenerally positive emotional affect was present in around 80% of the banner texts,whereas a generally negative affect was present in only around 14%. Besides, anoverwhelming majority (of more than 9 in 10) of the texts with a negative affectalso  had  a  positive  effect  present  as  well.  Looking  at  more  specific  emotionalaffects, trust and joy are among the most prevalent, present in around 66% and46% of the texts, respectively. The prevalence of general and specific emotionalaffects is shown in the figure below.</p>
 
 <p align="center">
 <img src="https://github.com/kampanosg/i-like-cookies/blob/master/paper/example_data/fig3.png?raw=true" />
@@ -38,9 +38,9 @@
 <p>Please cite the following paper if you use this repository:</p>
 <blockquote>George Kampanos and Siamak F. Shahandashti. "Accept All: The Landscape of Cookie Banners in Greece and the UK". To appear in the proceedings of the 36th International Conference on ICT Systems Security and Privacy Protection (IFIP SEC 2021)</blockquote>
 
-<br>
-<hr />
 
+
+<h2>That's it!</h2>
 Hope you've enjoyed my MSc Project! Drop me a line if you repeated the study for your country (or just want to say hi) [here](https://uk.linkedin.com/in/kampanosg). 
 
 ![](https://media.giphy.com/media/syBlSgDbjsMHC/giphy.gif)
