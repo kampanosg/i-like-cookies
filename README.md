@@ -26,6 +26,10 @@ cd paper
 ./build.sh
 ```
 
+<h2>Reference</h2>
+<p>Please cite the following paper if you use this repository:</p>
+<blockquote>George Kampanos and Siamak F. Shahandashti. "Accept All: The Landscape of Cookie Banners in Greece and the UK". To appear in the proceedings of the 36th International Conference on ICT Systems Security and Privacy Protection (IFIP SEC 2021)</blockquote>
+
 <h2>Findings</h2>
 
 <h3>Cookie Banners are not everywhere</h3>
@@ -47,11 +51,6 @@ cd paper
 <p align="center">
 <img src="https://github.com/kampanosg/i-like-cookies/blob/master/paper/example_data/fig3.png?raw=true" />
 </p>
-
-<h2>Reference</h2>
-<p>Please cite the following paper if you use this repository:</p>
-<blockquote>George Kampanos and Siamak F. Shahandashti. "Accept All: The Landscape of Cookie Banners in Greece and the UK". To appear in the proceedings of the 36th International Conference on ICT Systems Security and Privacy Protection (IFIP SEC 2021)</blockquote>
-
 
 <h2>That's it!</h2>
 Hope you've enjoyed my MSc Project! Drop me a line if you repeated the study for your country (or just want to say hi) <a href="https://uk.linkedin.com/in/kampanosg" target="_blank">here</a>. 
