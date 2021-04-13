@@ -1,45 +1,16 @@
-\documentclass[12pt]{extreport}
+\documentclass[runningheads]{llncs}
 
-% Page styles
-\usepackage[top=2.5cm, bottom=4cm, left=4cm, right=4cm]{geometry}
-\usepackage[noadjust]{cite}
-\usepackage{nameref, varioref, hyperref, cleveref, titlesec}
+\usepackage{subfiles, enumitem, dirtytalk, pgfplots, caption, xcolor, graphicx, booktabs, amssymb, appendix, listings, bchart, hyperref, subcaption}
+\usetikzlibrary{patterns}
 
-\setlength{\parindent}{8pt}
-\setlength{\parskip}{8pt}
-
-\renewcommand*{\Itemautorefname}{Item}
-\renewcommand*{\chapterautorefname}{Chapter}
-\renewcommand*{\sectionautorefname}{Section}
-\renewcommand*{\subsectionautorefname}{Subsection}
-\renewcommand*{\subsubsectionautorefname}{Subsubsection}
-\renewcommand*{\paragraphautorefname}{Paragraph}
-\renewcommand*{\Hfootnoteautorefname}{Footnote}
-
-\titleformat{\chapter} {\Huge\bfseries}{\thechapter}{20pt} {\Huge}
-\titlespacing*{\chapter}{0pt}{35pt}{20pt}
-
-% Greek support
-\usepackage[utf8]{inputenc}
-\usepackage[greek,english]{babel}
-\usepackage{alphabeta}
-
-% Font family to comply with marking scheme
-% \usepackage[scaled]{helvet}
-% \usepackage[T1]{fontenc}
-% \renewcommand\familydefault{\sfdefault}
-
-% Additional packages to make this report look sexy af
-\usepackage{subfiles, enumitem, dirtytalk, pgfplots, caption, subcaption, pgf-pie, xcolor, graphicx, booktabs, amssymb, appendix, listings, bchart}
-\usetikzlibrary{shadows}
-\pgfplotsset{compat=1.17}
-
-\renewcommand{\arraystretch}{1.2}
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{numberbychapter=false}
 
 \lstdefinestyle{lst_style}{
     backgroundcolor=\color{backcolour},   
@@ -47,76 +18,95 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\ttfamily\scriptsize,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
     keepspaces=true,                 
-    numbers=left,                    
+    numbers=none,                    
     numbersep=5pt,                  
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2
+    tabsize=2,
+    frame=single
 }
 
-\pagenumbering{roman}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\pgfplotsset{compat=1.17}
 
 \begin{document}
 
-    \chapter*{Acknowledgements}
-    \label{cha:acks}
-    \subfile{chapters/acks}
-    
-    \chapter*{Abstract}
-    \label{cha:abstract}
-    \subfile{chapters/abstract}
+\title{
+    Accept All: The Landscape of Cookie Banners in Greece and the UK
+    \thanks{This article is accepted to and to appear in the proceedings of IFIP SEC 2021.}
+}
 
-    \chapter*{Statement of Ethics}
-    \label{cha:ethics}
-    \subfile{chapters/ethics}
+\author{Georgios Kampanos \and Siamak F. Shahandashti}
 
-    \tableofcontents
-    \listoffigures
-    \listoftables
+\authorrunning{G. Kampanos and S. F. Shahandashti}
 
-    \chapter{Introduction}
-    \label{cha:introduction}
-    \setcounter{page}{1}
-    \pagenumbering{arabic}
-    \subfile{chapters/introduction}
+\institute{
+    University of York, UK\\ 
+    \email{kampanosg@outlook.com}, 
+    \email{siamak.shahandashti@york.ac.uk} 
+    % \\ \url{https://www.cs.york.ac.uk/}
+}
 
-    \chapter{Related Work}
-    \label{cha:lit_review}
-    \subfile{chapters/lit_review}
+\maketitle
 
-    \chapter{Methodology}
-    \label{cha:methodology}
-    \subfile{chapters/methodology}
+\begin{abstract}
+\subfile{chapters/abstract}
+\keywords{Cookie Banners \and Privacy Options \and Web Measurement \and Dark Patterns \and GDPR \and Data Protection Act \and User Tracking.}
+\end{abstract}
 
-    \chapter{Implementation}
-    \label{cha:implementation}
-    \subfile{chapters/implementation}
+\input{chapters/introduction}
 
-    \chapter{Data Analysis}
-    \label{cha:results}
-    \subfile{chapters/results}
+\input{chapters/background}
 
-    \chapter{Discussion}
-    \label{cha:discussion}
-    \subfile{chapters/discussion}
+\input{chapters/methodology}
 
-    \chapter{Conclusion}
-    \label{cha:conclusion}
-    \subfile{chapters/conclusion}
+\input{chapters/results}
 
-    \appendix
-    \chapter{Appendix}
-    \label{cha:appendix}
-    \subfile{chapters/appendix}
+\input{chapters/conclusion}
 
-    \nocite{*}
-    \bibliographystyle{IEEEtran}
-    \bibliography{Bibliography}
+%
+% ---- Bibliography ----
+%
+% \nocite{*} --- show the references if they are not referenced
+\bibliographystyle{splncs04}
+\bibliography{Bibliography}
 
 \end{document}

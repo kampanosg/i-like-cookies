@@ -1,124 +1,99 @@
-\documentclass[../main.tex]{subfiles}
+\section{Research Questions, Methodology, and Implementation}
 
-\begin{document}
 
-This chapter introduces the methods and techniques used in order to detect and measure Cookie Banners and the privacy options that they provide. Overall, the methodology of this project can be divided into 4 distinct steps. These steps are summarised, in chronological order, in the following list:
+In light of the results of the previous works, we aim to investigate the following research questions through a large-scale study of Greek and UK domains: 
 
-\begin{enumerate}
-    \item \textbf{Dataset Identification}: Collect a robust set of functioning websites to analyse and extract their Cookie Banners;
-    
-    \item \textbf{Data Collection} Crawl the identified websites and effectively collect the relevant data such as the source code of the Cookie Notices as well as screenshots of the webpages;
-    
-    \item \textbf{Data Sanitisation \& Normalisation}: Sanitise and structure the collected data from the previous step is a searchable and user friendly data structure.
-    
-    \item \textbf{Data Analysis}: Analyse and make sense of the collected Cookie Banners and their privacy options. 
+\begin{enumerate}[label=\textbf{RQ\arabic*}:, ref=RQ\arabic*, leftmargin=1.05cm]
+    \item \label{rq:prevalence} What is the prevalence of cookie banners across the board when less popular websites in Greece and the UK are also considered? 
+    \item \label{rq:avg_options} How does the distribution of options offered in cookie banners look like and what proportion of websites provide a direct cookie rejection option?
+    \item \label{rq:no_options} What proportion of websites employ implicit consent?
+    \item \label{rq:manage_options_count} What proportion of cookie banners allows their users to manage their privacy settings and control which vendors track them?
+    \item \label{rq:distribution} How do the countries compare in terms of the privacy options offered by cookie banners? 
 \end{enumerate}
 
-\section{Data Identification}
-The first step is to identify websites that can be analysed further in the subsequent steps of this project. Using publicly available lists such as Tranco~\cite{LePochat2019}, popular websites for the countries of interest were identified and used for further research. Identifying and utilising the most popular websites, from a wide range of categories, can show how the vast majority of users in a given country experience the web and can illustrate the impact of Cookie Banners and the privacy options that they offer.
+Our data collection included three steps. We first built a comprehensive set of functioning websites to analyse and extract their cookie banners. Then we crawled the identified websites and collected relevant data such as the source code of the cookie notices and screenshots of the webpages. Finally, we sanitised and structured the collected data into a data structure that facilitates analysis. 
+In the following, we explain these steps in more detail. 
+The code developed for this study and referred to throughout the paper is publicly available at the following repository: \url{https://github.com/kampanosg/i-like-cookies}. 
 
-Furthermore, country-specific lists, such as TopGR (\url{https://topgr.gr}), were also used to identify websites. This was done in order to handle local nuances that would otherwise be missed if this project used only Tranco for building its dataset. More specifically, country-specific lists aided the discovery of popular websites that do not use the Top Level Domain (TLD) of their country of origin. For instance, although British Airways (BA) is a UK company, they are using the \say{.com} TLD for their website and therefore, it would have been excluded from the dataset if the country-specific lists were not taken into account.
+\subsection{Building the Target List}
+The first step is to identify websites to be analysed in this study. Using the Tranco top sites ranking~\cite{LePochat2019}, popular websites for the two countries were identified based on their Top Level Domains (TLDs): \texttt{.uk} and \texttt{.gr}. 
+We decided to augment the TLD-based lists with other curated country-specific lists since many websites do not use the TLD of their country of origin, e.g.,  British Airways uses \texttt{.com}. 
 
-However, it is important to note that not all websites allow crawling and a lot of them explicitly state that they only allow \say{personal use} of their services and content to their visitors. In order to comply with the terms of use of the websites within the dataset, this project introduces two novel ways of respecting the restrictions imposed by the websites. These are summarised in the following list:
+\paragraph{Ethical Considerations.}
+Not all websites allow crawling and many explicitly state that they only allow \say{personal use} of their services and content to their visitors. To respect such restrictions imposed by the websites, we developed two parsers to identify and exclude such websites from our automated crawl: 
 
 \begin{enumerate}
-    \item A \say{Robots Exclusion Standard} parser that verifies whether websites allow crawling by reading their robots.txt file;
+    \item A Robots Exclusion Standard parser (\texttt{step1b\_checker\_robots.py}) that verifies whether websites allow crawling by reading their \texttt{robots.txt} file;
     
-    \item A \say{terms of service} (TOS) parser that makes best efforts to find exclusionary terms, such as \say{for personal use only}, in order to comply with the TOS of each website.
+    \item A Terms of Service (ToS) parser (\texttt{step1c\_checker\_tos.py}) that makes best effort to find exclusionary terms, e.g. \say{for personal use only}, to comply with the ToS of each website.
 \end{enumerate}
 
-\section{Data Collection}
-The second step is to effectively identify and collect the Cookie Banners on the websites in the dataset. In order to do so, this project takes advantage of the \say{I don’t care about cookies} (IDCAC) list which provides an extensive selection of common CSS selectors that Cookie Banners use. More specifically, the CSS selectors from that list are parsed and then added to a database to be used by OpenWPM. Furthermore, an additional 64 selectors are added to the list which was identified during testing.
+\subsection{Collecting Cookie Banners}
+The second step is to effectively identify and collect the cookie banners on the compiled set of websites. We achieve this by taking advantage of the \say{I don’t care about cookies} (IDCAC) list (\url{www.i-dont-care-about-cookies.eu}), which provides an extensive selection of standard CSS selectors that cookie banners use. We parse these selectors and add them to a database. Furthermore, during testing, we identified and added 64 additional selectors to IDCAC.
 
-After the cookie selectors have been parsed and added to the database, OpenWPM uses them to identify the Cookie Banners within the dataset identified in the previous step. More specifically, OpenWPM has been extended by this project to detect the Cookie Notices within a given website. OpenWPM checks whether the visited website has any of the selectors from the IDCAC list and if so, the Cookie Notice’s HTML code, as well as its attributes, are added to a database for further analysis. Table \ref{tab:methods_openwpm_fields}, summarises the data that is being saved in the database after OpenWPM has successfully identified the Cookie Banner. 
+After setting up the cookie selectors database, OpenWPM uses it to identify the cookie banners within the visited websites. We extended OpenWPM to detect cookie banners within a given website. For each website, we check whether it contains a CSS selector from the cached IDCAC list, using Selenium (\url{www.selenium.dev}), which allows for searching the HTML code of the website. When OpenWPM identifies a cookie banner, we perform additional analysis to make sure it is not a false positive, briefly by first ensuring that Selenium returned a valid HTML of a reasonable length, and then verifying that the returned HTML contains the terms \say{cookie} or \say{cookies}. 
 
-\begin{table}[ht]
+When OpenWPM successfully identifies a cookie banner, it is stored in a database for further analysis. Combining the cached cookie selectors and Selenium's efficient Document Object Model (DOM) search enables the cookie banner extension to be efficient and robust. 
+
+\subsection{Classifying and Normalising the Data}
+To our knowledge, no standard exists for cookie banners, and therefore, every website has a different implementation for their notices. Thus, the HTML code and the options they provide can be drastically different from website to website. Such complexity can make the data analysis difficult. Thus, before performing any research on the data, we transformed them into a consistent data structure. 
+
+\begin{table}[t]
     \centering
-    \begin{tabular}{@{}ll@{}}
-    \toprule
-        \textbf{Field} & \textbf{Description}                                   \\ \midrule
-        HTML           & The full HTML code of the Cookie Banner.               \\
-        size           & The width and height of the Cookie Banner.             \\
-        position       & The x and y coordinates of the Cookie Banner in the    \\ 
-                       & page.                                                  \\
-        banner\_exists & Indicates whether the banner has been successfully     \\ 
-                       & identified by OpenWPM.                                 \\
-        selector       & The CSS selector that the Cookie Banner uses.          \\ \bottomrule
-    \end{tabular}
-    \caption{The Cookie Banner attributes that are saved in the database by OpenWPM.}
-    \label{tab:methods_openwpm_fields}
-\end{table}
-
-\section{Data Sanitisation \& Normalisation}
-
-After OpenWPM has completed crawling the websites in the dataset, the next step is to sanitize and normalize the collected data. To our knowledge, no standard exists for Cookie Banners and therefore, every website has a different implementation for their notices. Thus, the HTML code, as well as the options that they provide, can be drastically different from website to website. This can make data analysis extremely difficult since there is no clear or efficient way of querying arbitrary data and therefore, the data have to be transformed into a consistent data structure before processing it further. 
-
-Firstly, the collected data have to be sanitised so that the privacy options that are offered by the Cookie Banners are identified and classified. In order to do so, the privacy options are categorised into 4 distinct categories. These are the Affirmative, Non-Affirmative, Informative and Managerial categories and they are summarised in Table \ref{tab:privacy_options_categories}.
-
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{@{}ll@{}}
+    \caption{The developed cookie banner options categories.}
+    \begin{tabular}{@{}l@{\quad}l@{}}
     \toprule
         \textbf{Category} & \textbf{Description}                                   \\ \midrule
-        Affirmative       & Options that prompt users to accept the use of cookies \\
-                          & such as \say{Accept all}.                                  \\
-        Non-Affirmative   & Options that allow users to opt-out from cookie        \\ 
-                          & tracking such as \say{Decline}.                            \\
-        Informative       & Options that take users to informational pages such as \\
-                          & the Privacy Policy page.                               \\
-        Managerial        & Options that allow users to manage tracking options    \\ 
-                          & and opt-out from certain trackers.                     \\ \bottomrule
+        Affirmative     & Options that prompt users to accept the use of cookies, \\
+                        & e.g. \say{accept}, \say{agree}, \say{allow}, and \say{OK}.                                  \\
+        Negative        & Options that allow users to opt-out from cookie tracking,        \\ 
+                        & e.g. \say{decline}, \say{reject}, \say{disagree}, and \say{no}.                            \\
+        Informational   & Options that take users to informational pages, e.g. \\
+                        & \say{Privacy Policy}, \say{learn/see more}, and \say{see/show details}.                               \\
+        Managerial      & Options that allow users to opt in/out of specific trackers,  \\ 
+                        & e.g. \say{manage}, \say{settings}, and \say{vendors/partners}.                     \\ \bottomrule
     \end{tabular}
-    \caption{The categories that the privacy options are classified into.}
     \label{tab:privacy_options_categories}
 \end{table}
 
-After the data have been sanitised they can be transformed into a consistent data structure that allows for efficient and easy analysis. More specifically, the arbitrary structure of the collected Cookie Notices is turned into formal SQL-like table format. This is done for the following reasons:
+First, we sanitised the collected data to identify and then classify the privacy options within the collected cookie banners. We identified four privacy option categories: \emph{Affirmative}, \emph{Negative}, \emph{Informational} and \emph{Managerial} as defined in Table \ref{tab:privacy_options_categories}. We developed these four categories by manually inspecting a random sample of the collected data during testing, further informed by our own experience with cookie banners in the wild. Using these categories allows us to classify the cookie banners by the types of options they provide and hence better understand user choices. Examples of cookie banners providing different combinations of these options can be seen in Fig.~\ref{fig:cookie_banners}. 
 
-\begin{enumerate}
-    \item \textbf{Accessibility}: Not everyone understands HTML and therefore, it might be hard for someone without programming skills to analyse the gathered data. Furthermore, not all websites use simple HTML for their Cookie Banners, like the one seen in Figure \ref{fig:methods_code}.
-    
-    \item \textbf{Efficiency}: Even experienced HTML developers might have a hard time analysing the thousands of Cookie Banners that were collected during this project.
-    
-    \item \textbf{Searchability}: Performing queries can be inefficient and inaccurate when having to search for this kind of data structure.
-\end{enumerate}
 
-For instance, Figure \ref{fig:methods_code}, depicts the HTML code from the HTML code of a Cookie Banner found in 9volto (www.9volto.gr) which contains a sentence informing users that the website uses cookies and an \say{Agree} button. After the sanitisation and normalisation steps, discussed in this section, the Cookie Banner is transformed into the data structure shown in Figure \ref{fig:methods_code_normalised}. Therefore, this can then be transferred to a MySQL table or an Excel sheet for efficient and easy analysis. The complete SQL-like data structure is summarised in Table \ref{tab:methods_normalised_schema}.
-
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/methodology/code.png}
-        \caption{HTML code from 9volto.gr.}
-        \label{fig:methods_code}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/methodology/normalised.png}
-        \caption{Normalised Cookie Banner.}
-        \label{fig:methods_code_normalised}
-    \end{subfigure}
-    \caption{HTML code from a Cookie Banner before and after data sanitisation \& normalisation.}
-    \label{fig:methods_html_code}
+    \includegraphics[width=\textwidth]{images/methodology/cookie_banners.png}
+    \caption{Three examples of cookie banners with different privacy options. 
+             Top: Affirmative and Informational, 
+             Middle: Affirmative, Managerial, and Informational, 
+             Bottom: Affirmative, Negative, and Managerial.}
+    \label{fig:cookie_banners}
 \end{figure}
 
+Manual inspection of the privacy options was necessary to account for local nuances. For example, although the noun $\alpha\pi o\delta o\chi\eta$ (lit. acceptance) was the most popular Affirmative call to action, a large number of banners used the verb $\delta\epsilon\chi o\mu\alpha\iota$ (I accept) indicating the same. We developed a comprehensive list of such variations and wrote a Python script (\texttt{step3a\_parse\_cookie\_banners.py}) to categorise cookie banners.
 
-\section{Data Analysis}
-\label{sec:methodology_analysing_data}
-After the data has been sanitised and normalised in a tabular data structure, the next step is to analyse the data in order to answer the research questions. While the data can be exported in a number of different applications, such as Microsoft’s Excel, this project retains the data in the database that was created in the previous steps in order to take advantage of SQL’s powerful and fast querying syntax and features. Where SQL fails to extract the required data, Python scripts have been used to perform more advanced analysis.
-   
-As before, the results are presented in a tabular format that can be converted into useful plots or exported in other applications for further analysis.
+After we categorised the privacy options, we transformed the collected data into a consistent data structure that allows for efficient querying. More specifically, we converted the arbitrary HTML form of the collected cookie notices into JSON to facilitate both manual and automated analyses. 
 
-\section{Summary}
-This chapter introduced the methods used and developed to detect Cookie Banners and analyse the privacy options that they give to users. In summary, this project’s methodology consists of 3 distinct steps. Firstly, popular websites from the target country are identified using open-source lists such as Tranco. Importantly, this project takes extra steps and makes best efforts to comply with each website's rules on crawling. Secondly, the Cookie Banners and their privacy options are identified and saved with the aid of OpenWPM as well as building on previous similar research to improve performance as well as retrieve more accurate data. The third step introduces a novel technique that structures the collected data in table format to allow for easy and efficient analysis. Finally, the structured data are analysed using SQL and Python in order to answer the research questions set by this project. Figure \ref{fig:methods_steps}, depicts the three methodology steps, as well as their sub-tasks, that were discussed in this chapter.
+Fig.~\ref{fig:html2json} depicts an example banner before and after categorisation and normalisation.
 
-\begin{figure}[ht]
+
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{images/methodology/steps.png}
-    \caption{The 4 steps of this project and their sub-tasks.}
-    \label{fig:methods_steps}
+    \begin{lstlisting}[language=HTML, style=lst_style]
+    <div class="..." aria-hidden="true" data-contents="...">
+     <div class="container">
+      <p class="...">By visiting x.gr you agree to the use of cookies.</p>
+      <a href="#" class="...">Agree</a>
+     </div>
+    </div>
+    \end{lstlisting}
+    \begin{lstlisting}[language=json, style=lst_style]
+    {
+     "has_accept_btn": 1, 
+     "accept-btn_cta": "Accept", 
+     "privacy_text": "By visiting x.gr you agree to the use of cookies.", 
+     ... 
+    }
+    \end{lstlisting}
+    \caption{A cookie banner before (top) and after (bottom) normalisation}
+    \label{fig:html2json}
 \end{figure}
-
-\end{document}

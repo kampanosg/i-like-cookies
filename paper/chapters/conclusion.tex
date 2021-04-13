@@ -1,61 +1,16 @@
-\documentclass[../main.tex]{subfiles}
-
-\begin{document}
-
-\section{Future Work}
-While this project has developed novel methods and gathered a plethora of data in order to understand the Cookie Banner landscape better, a lot more work can still be done. This includes building upon new and existing tools as well as diving deeper into the collected data and performing further analysis of it.
-
-\subsubsection{Repeat the study and expand it in more countries}
-One of the main goals of this project was to be repeatable and easily extendible. Thus, this survey can be conducted again with minimum effort and the new results can be directly compared with the ones presented in this paper. 
-
-For instance, this project showed that approximately 12\% of Greek websites do not display a Cookie Notice even though they store Third-Party Cookies for tracking purposes. In a few months, this survey can be conducted again in order to see whether the compliance levels have increased. 
-
-Furthermore, the crawlers developed for this project can be easily changed to target a different set of countries. For example, different researchers may want to explore different languages and countries within the European Union and beyond. All the code that was developed and used as part of this project can be found in Appendix \ref{section:appendix_code}.
-
-\subsubsection{NLP in Cookie Banners}
-Natural Language Processing (NLP) is the process of analysing and understanding the large amounts of natural language text such as transcripts or books. Various NLP techniques such as Morphological, Syntactic and Relational analysis~\cite{manning2014stanford} can be added to this project in order to improve data collection as well as result accuracy. 
-
-The following list summarises the components that can benefit from Natural Language Processing extensions:
-
-\begin{enumerate}
-    \item \textbf{Terms of service parser}: The current version of the TOS parser searches for specific exclusionary terms within the text in order to determine whether the website refuses crawlers. Using NLP, this process can become more accurate. For instance, more terms can be efficiently searched or the context of the entire text can be understood better;
-
-    \item \textbf{Extracting privacy option terms}: Currently, detecting privacy option terms is done manually. While this can be beneficial as local nuances can be easily weeded out, the survey can slow down due to the manual work involved. Natural Language Processing techniques can be implemented to assist human reviewers with this process;
-
-    \item \textbf{Understanding the privacy text}: The Cookie Banner privacy text is currently analysed using the TF-IDF method, which is also an NLP method. However, a lot more NLP analysis can be conducted in order to understand the privacy text included with the Cookie Banners. 
-\end{enumerate}
-
-\subsubsection{Website ranking}
-With the aid of the Tranco, a ranking can be added to the collected websites. This can provide further information on compliance and the Cookie Banner landscape.
-
-For instance, by knowing the website rankings may offer further insights such as whether rank and GDPR compliance have a correlation. Furthermore, parallels can be drawn between websites that employ dark patterns to nudge users towards privacy-intrusive decisions and their ranking.
-
-\subsubsection{Rise of fingerprinting}
-Fingerprinting is the process of adding a unique identifier (fingerprint) to an object or identifying an object from its fingerprint~\cite{wagner1983fingerprinting}. Browser fingerprinting techniques and algorithms have been suggested as an alternative to Third-Party Cookies for user tracking online. While cookies can be blocked or deleted by modern web browsers, browser fingerprinting methods rely on the browser’s and computer’s characteristics, which are usually not controlled by users, to identify a user~\cite{boda2011user}. For instance, Panopticlick gathered user information from the browser’s timezone, list of plugins, fonts, the HTTP connection parameters and more~\cite{eckersley2010unique}.
-
-Since Google is aiming to completely block Third-Party Cookies from Chrome by 2022~\cite{bohn_2020}, browser fingerprinting might become the preferred method of online tracking and advertising. As Englehardt et al.~\cite{englehardt2016online} showed in their 1-million website survey in 2015, canvas fingerprinting was detected in 5\% of their sample suggesting that websites are already aware of such methods. 
-
-Therefore, this projected can be extended as follows in order to measure the impact of browser fingerprinting:
-
-\begin{enumerate}
-    \item Using OpenWPM, measure whether online fingerprinting has increased before and after Google has blocked Third-Party Cookies;
-
-    \item Extending the methods developed for this project where needed, assess whether browser fingerprinting had an impact on the Cookie Notices shown by websites.
-\end{enumerate}
-
-For instance, if a significant increase in browser fingerprinting is detected in the UK, do Cookie Notices reflect the change in which websites track users? 
-
-\section{Final Remarks}
-Since Cookie Banners are becoming part of everyday online life, it is important to understand them better. This project carried out the most comprehensive study of cookie banners in the UK and Greece so far. While other studies on Cookie Notices surveyed approximately 2,000 websites, this project looked at over 14,000 websites and collected more than 7,000 Cookie Banners. Interestingly, results show that Greek and UK Cookie Banners show numerous similarities. 
-
-For instance, it is evident that although 53\% of websites display a Cookie Notice, on average 12\% do not show one even if they use Third-Party Cookies. Furthermore, websites make it extremely difficult for users to opt-out from tracking with only 4.5\% offering an opt-out option. Finally, the data suggest that websites present cookies as \say{devices} that improve usability and browsing experience for a user and therefore, nudging them to accept tracking even though that is not true.
+\section{Conclusion}
 
 
-It is hoped that now that the results and the methodology is available to the public, similar studies will be conducted in different countries. It is possible. However, the ever-changing nature of technology means that tracking will also evolve. Thus, future studies should not only focus on Third-Party Cookies but also pay attention to web-browser fingerprinting and its dangers. 
+We set out to conduct the most comprehensive study of cookie banners in the UK and Greece to date in the hope that a more thorough understanding of the cookie banner landscape in the two countries is beneficial for a rage of stakeholders including users, privacy-enhancing technology developers, and policymakers.
+% To achieve this, we collected websites from open-source lists such as Tranco and developed purpose-built software to determine whether websites allow crawling by parsing their robots.txt and Terms of Service pages. 
+By extending OpenWPM to detect and store cookie banners, over 17,000 websites were crawled and more than 7,000 cookie banners were collected. 
 
-In conclusion, this project aimed to develop a comprehensive understanding of the Cookie Banner landscape and how this may affect everyday users and lawmakers alike. It is clear that although Cookie Banners are everywhere, there is still a large number of websites that do not comply with the law or implement dark patterns to trick, and sometimes force, users into accepting tracking. This is noticeable in the low adaptability of opt-out options, the prominence of Affirmative options and the \say{branding} of cookies as the \say{secret} to a better browsing experience. 
+Our results show that although around half of the websites in our dataset display a cookie notice, a substantial proportion do not show one even though they use third-party cookies. 
+Furthermore, websites make it extremely difficult for users to opt-out from tracking with only a minority offering a direct opt-out option. 
+Our analysis also suggests that websites present cookies as devices that improve browsing experience for the user while the negative aspects of tracking tend to be downplayed. 
+Hence, we find clear evidence of websites nudging visitors towards privacy-intrusive choices and violating regulations. 
 
-Although the GDPR and the Data Protection Act 2018 has paved the way for users to take control of their privacy, it seems that not only websites have adapted but have also found ways of conducting large-scale data collection while the powers granted to the users by legislation seem inadequate. 
-  
+Although in many cases our results agree with previous studies considering smaller samples, we also found that in some cases, e.g. prevalence of cookie banners and those providing specific options, our observations significantly differ from previous reported values. 
+Hence, we hope that our work provides a more holistic view of the landscape of cookie banners in the two countries. 
 
-\end{document}
+Future work directions include more comprehensive studies of the cookie banner landscape for other countries (for which our code is available and can be reused), a more detailed analysis and classification of varying cookie banner practices in specific subsets of the dataset, e.g., in different industries, and further analyses of the cookie banner text corpus. 
