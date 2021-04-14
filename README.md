@@ -15,7 +15,7 @@
 <h2>The Paper</h2>
 Our researchers has been accepted to and to appear in the proceedings of IFIP SEC 2021! You can read it by... 
 
-1. Downloading it directly from <a href="#" target="_blank">arXiv</a>
+1. Downloading it directly from <a href="https://arxiv.org/abs/2104.05750" target="_blank">arXiv</a>
 2. Pulling it from our GitHub <a href="https://github.com/kampanosg/i-like-cookies/blob/master/paper/main.pdf" target="_blank">repo</a>
 3. Building it from source as shown below (<a href="https://www.latex-project.org/get/" target="_blank">Latex</a> is required)
 
