@@ -31,6 +31,7 @@ cd paper
 <blockquote>George Kampanos and Siamak F. Shahandashti. "Accept All: The Landscape of Cookie Banners in Greece and the UK". To appear in the proceedings of the 36th International Conference on ICT Systems Security and Privacy Protection (IFIP SEC 2021)</blockquote>
 
 <h3>Bibtex</h3>
+
 ```
 @misc{kampanos2021accept,
   title={Accept All: The Landscape of Cookie Banners in Greece and the UK}, 
